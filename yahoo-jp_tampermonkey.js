@@ -5,6 +5,7 @@
 // @description  try to take over the world!
 // @author       You
 // @match        https://auctions.yahoo.co.jp/seller/*
+// @match        https://auctions.yahoo.co.jp/search/search?*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=yahoo.co.jp
 // @grant        none
 // @noframes
@@ -43,12 +44,8 @@ $('.Product__image').each(function() {
     window.open(url, '_blank')
   }
   $(this).append(`
-    <a class="Product__button" style="right: 48px;" href="${url}" target="_blank">
-      <div class="gv-WatchButtonWrap">
-        <div class="js-watch-wrap"></div>
-        <button class="gv-WatchButton gv-WatchButton--circle search-btn" style="color: #fff; font-weight: bold;">G</button>
-      </div>
+    <a class="Product__button" style="right: 48px; text-decoration: none;" href="${url}" target="_blank">
+      <div style="width: 32px; height: 32px; padding: 8px; border-radius: 50%; background-color: #ccc; box-sizing: border-box; color: #fff; line-height: 1; text-align: center; font-weight: bold">G</div>
     </a>
-  `).find('.search-btn').on('click', searchInGoogle())
-
+  `).find('div').on('click', searchInGoogle)
 })
